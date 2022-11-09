@@ -407,7 +407,9 @@ img {
 
 
 /* button loader */
-.d-none {display: none;}
+.d-none {
+    display: none;
+}
 
 .lds-dual-ring:after {
     content: " ";
@@ -419,16 +421,16 @@ img {
     border: 3px solid #fff;
     border-color: #fff transparent #fff transparent;
     animation: lds-dual-ring 1.2s linear infinite;
-  }
-  @keyframes lds-dual-ring {
+}
+@keyframes lds-dual-ring {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
+}
+
 
 
 
@@ -1283,8 +1285,8 @@ img {
         column-gap: 3rem;
     }
 
-    .project__data {    
-        padding-top: .8rem;
+    .project__data {
+        padding-top: 0.8rem;
     }
 
     .footer__container {
@@ -1294,7 +1296,7 @@ img {
     .footer__bg {
         padding: 3rem 0 3.5rem;
     }
-    
+
     .footer__links {
         flex-direction: row;
         column-gap: 2rem;

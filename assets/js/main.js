@@ -202,18 +202,6 @@ const sr = ScrollReveal({
 });
 
 
-// =================== GOOGLE SHEETS ================
-// form send button send button loading
-// const scriptURL = 'https://script.google.com/macros/s/AKfycbyjnokRgxcAoSkkNHcLAR9ulkRkwQQHvtT6Npv-IEK9bXEOQVgcTapT1G3YLSOlPjtH/exec'
-//             const form = document.forms['zidan-contact-form']
-          
-//             form.addEventListener('submit', e => {
-//               e.preventDefault()
-//               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-//                 .then(response => console.log('Success!', response))
-//                 .catch(error => console.error('Error!', error.message))
-//             })
-
 
 
 
