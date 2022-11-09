@@ -13,7 +13,9 @@
         <!--==================== CSS ====================-->
         <link rel="stylesheet" href="assets/css/styles.css" />
 
-        <style></style>
+        <link rel="stylesheet" href="assets/css/loader.css">
+        <!-- bootstrap 5.2 -->
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 
         <title>Responsive Portfolio Website</title>
     </head>
@@ -741,7 +743,7 @@
                         </div>
 
                         <!--==================== TESTIMONIAL 3 ====================-->
-                        <div class="testimonial__content swiper-slide">
+                        <div cla`ss="testimonial__content swiper-slide">
                             <div class="testimonial__data">
                                 <div class="testimonial__header">
                                     <img src="assets/img/testimoni3.JPG" alt="" class="testimonial__img">
@@ -805,32 +807,49 @@
                         </div>
                     </div>
 
-                    <form action="" class="contact__form grid">
+                    <!-- =================FORM CONTACT -->
+                    <form action="" class="contact__form grid" name="zidan-contact-form">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
                                 <label for="" class="contact__label">Name</label>
-                                <input type="text" class="contact__input">
+                                <input type="text" class="contact__input" name="nama">
                             </div>
                             <div class="contact__content">
                                 <label for="" class="contact__label">Email</label>
-                                <input type="email" class="contact__input">
+                                <input type="email" class="contact__input" name="email">
                             </div>
                         </div>
                         <div class="contact__content">
                             <label for="" class="contact__label">Project</label>
-                            <input type="text" class="contact__input">
+                            <input type="text" class="contact__input" name="project">
                         </div>
                         <div class="contact__content">
                             <label for="" class="contact__label">Message</label>
-                             <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
+                             <textarea id="" cols="0" rows="7" class="contact__input" name="pesan"></textarea>
                         </div>
 
+
+                        <!-- button -->
                         <div>
+                            <!-- button send -->
+                            <button type="submit" class="button button--flex btn-send">send message
+
+                                <i class="uil uil-message button__icon"></i>
+                            </button>  
+                            <!-- button loading -->
+                            <button type="submit" class="button button--flex btn-loading d-none">Loading
+
+                                <i class="lds-dual-ring button__icon"></i>
+                            </button>    
+                        </div>
+                        
+                        
+                        <!-- <div>  
                             <a href="#" class="button button--flex">
-                                Send Message
+                                    end Message
                                 <i class="uil uil-message button__icon"></i>
                             </a>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </section>
@@ -887,5 +906,34 @@
 
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
+
+        <!-- JavaScript Bundle with Popper  bootstrap-5.2 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+        <!-- google sheets -->
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyjnokRgxcAoSkkNHcLAR9ulkRkwQQHvtT6Npv-IEK9bXEOQVgcTapT1G3YLSOlPjtH/exec'
+            const form = document.forms['zidan-contact-form']
+            const btnKirim = document.querySelector('.btn-send')
+            const btnLoading = document.querySelector('.btn-loading')
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+            //  ketika tombol submit diklik
+            // tampilkan tombol loading, hilangkan tombol kirim
+                btnLoading.classList.toggle('d-none')
+                btnKirim.classList.toggle('d-none')
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // tampilkan tombol kirim, hilangkan tombol loading
+                    btnLoading.classList.toggle('d-none')
+                    btnKirim.classList.toggle('d-none')
+                    // reset formnya
+                    form.reset()
+                    console.log('Success!', response)
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
     </body>
 </html>

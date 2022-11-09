@@ -363,6 +363,7 @@ img {
     padding: 1rem;
     border-radius: 0.5rem;
     font-weight: var(--font-medium);
+    border: none;
 }
 
 .button:hover {
@@ -403,6 +404,33 @@ img {
     background-color: transparent;
     color: var(--first-color-alt);
 }
+
+
+/* button loader */
+.d-none {display: none;}
+
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin: 1.5px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+
 
 /*==================== ABOUT ====================*/
 .about__img {
